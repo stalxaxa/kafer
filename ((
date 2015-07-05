@@ -1,0 +1,509 @@
+mediatag
+Array
+(
+    [YouTube] => Array
+        (
+            [match] => http(?:s)?://(www\.)?youtube\.com/watch\?(\S+?)?v=([\d\w-_]+?)(&\S+?)?
+            [replace] => <iframe id="ytplayer" class="EmbeddedVideo" type="text/html" width="640" height="390" src="http://youtube.com/embed/$3?html5=1&fs=1" frameborder="0" allowfullscreen webkitallowfullscreen /></iframe>
+        )
+
+    [Google Video] => Array
+        (
+            [match] => http://video\.google\.com/videoplay?docid=(.*?)
+            [replace] => <embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=$1&hl=en" flashvars=""> </embed>
+        )
+
+    [MySpace Video] => Array
+        (
+            [match] => http://www\.myspace\.com/video/(.*?)/(\d+)$
+            [replace] => <object width="425px" height="360px" >
+<param name="allowScriptAccess" value="always"/>
+<param name="allowFullScreen" value="true"/>
+<param name="wmode" value="transparent"/>
+<param name="movie" value="http://mediaservices.myspace.com/services/media/embed.aspx/m=$2,t=1,mt=video"/>
+<embed src="http://mediaservices.myspace.com/services/media/embed.aspx/m=$2,t=1,mt=video" width="425" height="360" allowFullScreen="true" type="application/x-shockwave-flash" wmode="transparent" allowScriptAccess="always"></embed>
+</object>
+        )
+
+    [GameTrailers] => Array
+        (
+            [match] => http://www\.gametrailers\.com/(.*?)/(.*?)/(.*?)
+            [replace] => <embed src="http://media.mtvnservices.com/mgid:moses:$1:gametrailers.com:$3" width="512" height="288" type="application/x-shockwave-flash" allowFullScreen="true" allowScriptAccess="always" base="." flashVars=""></embed>
+        )
+
+    [YouTu.be] => Array
+        (
+            [match] => http://(www\.)?youtu\.be/([\d\w-_]+?)
+            [replace] => <iframe id="ytplayer" class="EmbeddedVideo" type="text/html" width="640" height="390" src="http://youtube.com/embed/$2?html5=1&fs=1" frameborder="0" allowfullscreen webkitallowfullscreen /></iframe>
+        )
+
+    [Flickr Image Set] => Array
+        (
+            [match] => http://www\.flickr\.com/photos/(.*?)/sets/(.*?)/
+            [replace] => <iframe align="center" src="http://www.flickr.com/slideShow/index.gne?user_id=$1&set_id=$2" frameBorder="0" width="500" height="500"></iframe>
+        )
+
+    [MP3] => Array
+        (
+            [match] => (.*?)\.mp3
+            [replace] => <object type="application/x-shockwave-flash" data="{board_url}/public/mp3player.swf" width="300" height="40">
+     <param name="movie" value="{board_url}/public/mp3player.swf" />
+     <param name="FlashVars" value="mp3=$1.mp3&autoplay=0&loop=0&volume=100&showstop=1&showinfo=0" />
+</object>
+        )
+
+    [Flash Movie/Game] => Array
+        (
+            [match] => (.*?)\.swf
+            [replace] => <embed src="$1.swf" play="true" loop="true" quality="best" type="application/x-shockwave-flash" wmode="transparent" pluginspace="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" />
+        )
+
+    [Vimeo] => Array
+        (
+            [match] => http(.*?)://vimeo\.com/(.*?)
+            [replace] => <iframe src="http$1://player.vimeo.com/video/$2" class="EmbeddedVideo" width="400" height="250" frameborder="0"></iframe>
+        )
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+attachtypes
+Array
+(
+    [aiff] => Array
+        (
+            [atype_extension] => aiff
+            [atype_mimetype] => audio/x-aiff
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/quicktime.gif
+        )
+
+    [bmp] => Array
+        (
+            [atype_extension] => bmp
+            [atype_mimetype] => image/x-MS-bmp
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/gif.gif
+        )
+
+    [css] => Array
+        (
+            [atype_extension] => css
+            [atype_mimetype] => unknown/unknown
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/script.gif
+        )
+
+    [doc] => Array
+        (
+            [atype_extension] => doc
+            [atype_mimetype] => application/msword
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/doc.gif
+        )
+
+    [gif] => Array
+        (
+            [atype_extension] => gif
+            [atype_mimetype] => image/gif
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/gif.gif
+        )
+
+    [gz] => Array
+        (
+            [atype_extension] => gz
+            [atype_mimetype] => application/x-gzip
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/zip.gif
+        )
+
+    [hqx] => Array
+        (
+            [atype_extension] => hqx
+            [atype_mimetype] => application/mac-binhex40
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/stuffit.gif
+        )
+
+    [htm] => Array
+        (
+            [atype_extension] => htm
+            [atype_mimetype] => unknown/unknown
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/html.gif
+        )
+
+    [html] => Array
+        (
+            [atype_extension] => html
+            [atype_mimetype] => unknown/unknown
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/html.gif
+        )
+
+    [ico] => Array
+        (
+            [atype_extension] => ico
+            [atype_mimetype] => image/ico
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/gif.gif
+        )
+
+    [jpeg] => Array
+        (
+            [atype_extension] => jpeg
+            [atype_mimetype] => image/jpeg
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/gif.gif
+        )
+
+    [jpg] => Array
+        (
+            [atype_extension] => jpg
+            [atype_mimetype] => image/jpeg
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/gif.gif
+        )
+
+    [mov] => Array
+        (
+            [atype_extension] => mov
+            [atype_mimetype] => video/quicktime
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/quicktime.gif
+        )
+
+    [mp3] => Array
+        (
+            [atype_extension] => mp3
+            [atype_mimetype] => audio/x-mpeg
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/music.gif
+        )
+
+    [mpg] => Array
+        (
+            [atype_extension] => mpg
+            [atype_mimetype] => video/mpeg
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/quicktime.gif
+        )
+
+    [pdf] => Array
+        (
+            [atype_extension] => pdf
+            [atype_mimetype] => application/pdf
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/pdf.gif
+        )
+
+    [php] => Array
+        (
+            [atype_extension] => php
+            [atype_mimetype] => unknown/unknown
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/php.gif
+        )
+
+    [png] => Array
+        (
+            [atype_extension] => png
+            [atype_mimetype] => image/png
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/gif.gif
+        )
+
+    [ppt] => Array
+        (
+            [atype_extension] => ppt
+            [atype_mimetype] => application/powerpoint
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/ppt.gif
+        )
+
+    [ps] => Array
+        (
+            [atype_extension] => ps
+            [atype_mimetype] => application/postscript
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/eps.gif
+        )
+
+    [ram] => Array
+        (
+            [atype_extension] => ram
+            [atype_mimetype] => audio/x-pn-realaudio
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/real_audio.gif
+        )
+
+    [rtf] => Array
+        (
+            [atype_extension] => rtf
+            [atype_mimetype] => unknown/unknown
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/rtf.gif
+        )
+
+    [tar] => Array
+        (
+            [atype_extension] => tar
+            [atype_mimetype] => application/x-tar
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/zip.gif
+        )
+
+    [tiff] => Array
+        (
+            [atype_extension] => tiff
+            [atype_mimetype] => image/tiff
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/quicktime.gif
+        )
+
+    [txt] => Array
+        (
+            [atype_extension] => txt
+            [atype_mimetype] => unknown/unknown
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/txt.gif
+        )
+
+    [viv] => Array
+        (
+            [atype_extension] => viv
+            [atype_mimetype] => video/vivo
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/win_player.gif
+        )
+
+    [wav] => Array
+        (
+            [atype_extension] => wav
+            [atype_mimetype] => audio/x-wav
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/music.gif
+        )
+
+    [wmv] => Array
+        (
+            [atype_extension] => wmv
+            [atype_mimetype] => video/x-ms-wmv
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/win_player.gif
+        )
+
+    [xml] => Array
+        (
+            [atype_extension] => xml
+            [atype_mimetype] => unknown/unknown
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/script.gif
+        )
+
+    [zip] => Array
+        (
+            [atype_extension] => zip
+            [atype_mimetype] => application/zip
+            [atype_post] => 1
+            [atype_img] => style_extra/mime_types/zip.gif
+        )
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sharelinks
+Array
+(
+    [twitter] => Array
+        (
+            [share_id] => 1
+            [share_title] => Twitter
+            [share_key] => twitter
+            [share_enabled] => 0
+            [share_position] => 1
+            [share_canonical] => 1
+            [share_groups] => *
+        )
+
+    [facebook] => Array
+        (
+            [share_id] => 2
+            [share_title] => Facebook
+            [share_key] => facebook
+            [share_enabled] => 0
+            [share_position] => 2
+            [share_canonical] => 1
+            [share_groups] => *
+            [customOutput] => Array
+                (
+                    [0] => global
+                    [1] => facebookShareButton
+                    [2] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [googleplusone] => Array
+        (
+            [share_id] => 3
+            [share_title] => Google Plus One
+            [share_key] => googleplusone
+            [share_enabled] => 0
+            [share_position] => 3
+            [share_canonical] => 1
+            [share_groups] => *
+            [customOutput] => Array
+                (
+                    [0] => global
+                    [1] => googlePlusOneButton
+                    [2] => Array
+                        (
+                            [lang] => fr
+                        )
+
+                )
+
+        )
+
+    [digg] => Array
+        (
+            [share_id] => 4
+            [share_title] => Digg
+            [share_key] => digg
+            [share_enabled] => 0
+            [share_position] => 4
+            [share_canonical] => 1
+            [share_groups] => *
+        )
+
+    [delicious] => Array
+        (
+            [share_id] => 5
+            [share_title] => Del.icio.us
+            [share_key] => delicious
+            [share_enabled] => 0
+            [share_position] => 6
+            [share_canonical] => 1
+            [share_groups] => *
+        )
+
+    [reddit] => Array
+        (
+            [share_id] => 6
+            [share_title] => Reddit
+            [share_key] => reddit
+            [share_enabled] => 0
+            [share_position] => 7
+            [share_canonical] => 1
+            [share_groups] => *
+        )
+
+    [stumble] => Array
+        (
+            [share_id] => 7
+            [share_title] => StumbleUpon
+            [share_key] => stumble
+            [share_enabled] => 0
+            [share_position] => 8
+            [share_canonical] => 1
+            [share_groups] => *
+        )
+
+    [email] => Array
+        (
+            [share_id] => 8
+            [share_title] => Email
+            [share_key] => email
+            [share_enabled] => 0
+            [share_position] => 9
+            [share_canonical] => 1
+            [share_groups] => *
+        )
+
+    [print] => Array
+        (
+            [share_id] => 10
+            [share_title] => Print
+            [share_key] => print
+            [share_enabled] => 0
+            [share_position] => 10
+            [share_canonical] => 0
+            [share_groups] => *
+        )
+
+    [download] => Array
+        (
+            [share_id] => 11
+            [share_title] => Download
+            [share_key] => download
+            [share_enabled] => 0
+            [share_position] => 11
+            [share_canonical] => 0
+            [share_groups] => *
+        )
+
+)
